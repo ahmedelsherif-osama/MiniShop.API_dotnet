@@ -1,0 +1,37 @@
+@MiniShopAPI_HostAddress = http://localhost:5079/api/products
+
+GET {{MiniShopAPI_HostAddress}}
+Accept: application/json
+
+###
+
+GET {{MiniShopAPI_HostAddress}}/e1bf9018-d63d-4752-9908-b4f3cf1fe9a9
+Accept: application/json
+
+###
+POST {{MiniShopAPI_HostAddress}}
+Content-Type: application/json
+
+{
+  "id": "00000000-0000-0000-0000-000000000000",
+  "name": "Test Product",
+  "price": 12.5,
+  "description": "A sample product for testing"
+}
+
+###
+PUT {{MiniShopAPI_HostAddress}}
+Content-Type: application/json
+
+{
+  "id": "e1bf9018-d63d-4752-9908-b4f3cf1fe9a9",
+  "name": "Test Product 2",
+  "price": 300,
+  "description": "A sample product for testing"
+}
+
+###
+DELETE {{MiniShopAPI_HostAddress}}/e1bf9018-d63d-4752-9908-b4f3cf1fe9a9
+Content-Type: application/json
+
+###
