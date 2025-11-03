@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using MiniShopAPI.Models;
 using MiniShopAPI.Services;
@@ -16,36 +17,36 @@ public class ProductsController : ControllerBase
     }
 
     [HttpGet]
-    public ActionResult<List<Product>> GetAll()
+    public async Task<ActionResult<List<Product>>> GetAll()
     {
-        return _productService.GetAll();
+        return await _productService.GetAllAsync();
     }
 
     [HttpGet("{productId}")]
-    public ActionResult<Product> GetProductById(Guid productId)
+    public async Task<ActionResult<Product>> GetProductById(Guid productId)
     {
-        return _productService.GetById(productId);
+        return await _productService.GetByIdAsync(productId);
     }
 
     [HttpPost]
 
-    public ActionResult<Product> AddProduct([FromBody] Product product)
+    public async Task<ActionResult<Product>> AddProduct([FromBody] Product product)
     {
-        _productService.Add(product);
+        await _productService.AddAsync(product);
         return product;
     }
 
     [HttpPut]
-    public ActionResult<Product> UpdateProduct([FromBody] Product product)
+    public async Task<ActionResult<Product>> UpdateProduct([FromBody] Product product)
     {
-        _productService.Update(product);
+        await _productService.UpdateAsync(product);
         return product;
     }
 
     [HttpDelete("{productId}")]
-    public IActionResult DeleteProduct(Guid productId)
+    public async Task<IActionResult> DeleteProduct(Guid productId)
     {
-        _productService.Delete(productId);
+        await _productService.DeleteAsync(productId);
         return Ok();
     }
 }

@@ -5,7 +5,7 @@ Accept: application/json
 
 ###
 
-GET {{MiniShopAPI_HostAddress}}/e1bf9018-d63d-4752-9908-b4f3cf1fe9a9
+GET {{MiniShopAPI_HostAddress}}/fbc88a88-c6f4-42cc-b44e-9d0599f59b12
 Accept: application/json
 
 ###
@@ -24,14 +24,14 @@ PUT {{MiniShopAPI_HostAddress}}
 Content-Type: application/json
 
 {
-  "id": "e1bf9018-d63d-4752-9908-b4f3cf1fe9a9",
+  "id": "fbc88a88-c6f4-42cc-b44e-9d0599f59b12",
   "name": "Test Product 2",
   "price": 300,
   "description": "A sample product for testing"
 }
 
 ###
-DELETE {{MiniShopAPI_HostAddress}}/e1bf9018-d63d-4752-9908-b4f3cf1fe9a9
+DELETE {{MiniShopAPI_HostAddress}}/fbc88a88-c6f4-42cc-b44e-9d0599f59b12
 Content-Type: application/json
 
 ###

@@ -1,36 +1,49 @@
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using MiniShopAPI.Models;
 
 namespace MiniShopAPI.Services;
 
 public class ProductService
 {
-    private readonly List<Product> _products = new();
+    private readonly IProductRepository _repository;
 
-    public List<Product> GetAll()
+    public ProductService(IProductRepository repository)
     {
-        return _products;
-    }
-    public Product GetById(Guid id)
-    {
-        return _products.Where(p => p.Id == id).First();
+        _repository = repository;
     }
 
-    public void Add(Product product)
+    public Task<List<Product>> GetAllAsync()
+    {
+        return _repository.GetAllAsync();
+    }
+    public Task<Product> GetByIdAsync(Guid id)
+    {
+        var product = _repository.GetByIdAsync(id);
+
+        return product;
+    }
+
+    public Task AddAsync(Product product)
     {
         product.Id = Guid.NewGuid();
-        _products.Add(product);
+        return _repository.AddAsync(product);
+
+
     }
 
-    public void Update(Product product)
+    public Task UpdateAsync(Product product)
     {
-        var orginalProduct = _products.Where(p => p.Id == product.Id).First();
-        _products.Remove(orginalProduct);
-        _products.Add(product);
+        var orginalProduct = _repository.UpdateAsync(product);
+        return orginalProduct;
+
+
     }
 
-    public void Delete(Guid productId)
+    public Task DeleteAsync(Guid productId)
     {
-        var product = _products.Where(p => p.Id == productId).First();
-        _products.Remove(product);
+        return _repository.DeleteAsync(productId);
+
+
     }
 }
