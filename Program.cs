@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using MiniShopAPI.Filters;
 using MiniShopAPI.Middlewares;
 using MiniShopAPI.Services;
 
@@ -11,6 +12,7 @@ builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(buil
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
 builder.Services.AddScoped<ProductService>();
+builder.Services.AddScoped<LogActionFilter>();
 
 builder.Services.AddControllers();
 

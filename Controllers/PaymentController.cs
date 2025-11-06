@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using MiniShopAPI.Filters;
 using MiniShopAPI.Models;
 using MiniShopAPI.Models.DTOs;
 using MiniShopAPI.Models.Payments;
@@ -8,6 +9,8 @@ namespace MiniShopAPI.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
+[ServiceFilter(typeof(LogActionFilter))]
+
 public class PaymentController : ControllerBase
 {
     private readonly PaymentService _paymentService;

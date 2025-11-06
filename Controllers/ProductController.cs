@@ -1,10 +1,12 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using MiniShopAPI.Filters;
 using MiniShopAPI.Models;
 using MiniShopAPI.Services;
 
 namespace MiniShopAPI.Controllers;
 
+[ServiceFilter(typeof(LogActionFilter))]
 [ApiController]
 [Route("api/[controller]")]
 public class ProductsController : ControllerBase
