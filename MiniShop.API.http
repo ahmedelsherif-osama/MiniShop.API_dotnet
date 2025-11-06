@@ -2,6 +2,7 @@
 
 GET {{MiniShopAPI_HostAddress}}
 Accept: application/json
+X-Source-System: WarehouseSystem
 
 ###
 
